@@ -130,12 +130,11 @@ chmod +x generatelog4jpayload.sh
 ```
 Where generatelog4jpayload.sh is the name of the script above.
 
-# Run reverse shell
-## Start a netcat listener to accept reverse shell connection. Run the command below:
+# Start reverse shell listerner
 
 nc -lvnp 9001
 
-# Bulid the docker image
+# Build the docker image
 ```
 #!/bin/bash
 cd ~/mylog4j/log4j-shell-poc
