@@ -1,4 +1,6 @@
-# This script creates a vulnerable lab for network pentest training
+# Vulnerable server
+## You can use this and the configurations that follow to create vulnerable lab for network pentest training
+
 ```
 #!/bin/bash
 sudo apt update
