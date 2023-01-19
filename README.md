@@ -81,8 +81,6 @@ sudo ./run.sh
 
 chmod + startjamesserver.sh
 
-## Run
-
 ./startjamesserver.sh to start the server.
 
 # Apache Tomcat Configuration
