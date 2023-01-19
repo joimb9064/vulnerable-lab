@@ -1,5 +1,6 @@
 # This script creates a vulnerable lab for network pentest training
-``` #!/bin/bash
+```
+#!/bin/bash
 sudo apt update
 #Samba
 echo "*********Install samba*********"
