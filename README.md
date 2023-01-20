@@ -66,7 +66,7 @@ pip install -r requirements.txt
 echo "*******log4j poc done*******"
 
 #Install ssh server
-sudo apt install openssh-server
+sudo apt install openssh-server -y
 sudo systemctl enable --now ssh
 
 ```
