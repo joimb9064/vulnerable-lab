@@ -111,6 +111,30 @@ Replace the manager section with
 ```
 
 # Start apache with script name startapache.sh
+### Change Listening port
+Go to / opt/apache-tomcat-9.0.71/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
+
+Change ### Connector port="8080" to ### Connector port="8081"
+```
+<!-- A "Connector" represents an endpoint by which requests are received
+         and responses are returned. Documentation at :
+         Java HTTP Connector: /docs/config/http.html
+         Java AJP  Connector: /docs/config/ajp.html
+         APR (HTTP/AJP) Connector: /docs/apr.html
+         Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
+    -->
+    <Connector port="8081" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+    <!-- A "Connector" using the shared thread pool-->
+    <!--
+    <Connector executor="tomcatThreadPool"
+               port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+    -->
+```
+
 ```
 #!/bin/bash
 cd /opt/tomcat/apache-tomcat-9.0.68/bin
