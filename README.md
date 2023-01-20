@@ -1,5 +1,11 @@
 # Vulnerable server
 ### You can use this script and the configurations that follow to create vulnerable lab for network pentest training
+#### The script will install the following
+* James-2.3.2 vulnerable server
+* Misconfigured apache-tomcat
+* Misconfigured Samba
+* Log4j PoC
+* Misconfihured crontab file
 
 ```
 #!/bin/bash
