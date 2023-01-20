@@ -90,7 +90,9 @@ chmod + startjamesserver.sh
 
 # Apache Tomcat Configuration
 Open the tomcat-users.xml in the /opt/apache-tomcat-9.0.68/conf
-Replace the manager section with 
+
+Modify the manager section of the tomcat-users.xml file as follows:
+ 
 ```
 <role rolename="manager-gui"/>
 <user username="tomcat" password="tomcat" roles="manager-gui"/>
@@ -110,8 +112,8 @@ Replace the manager section with
 
 ```
 
-# Start apache with script name startapache.sh
-### Change Listening port
+
+# Configure Apache_Tomcat Listening port
 Go to / opt/apache-tomcat-9.0.71/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
 
 Change ### Connector port="8080" to ### Connector port="8081"
@@ -134,7 +136,7 @@ Change ### Connector port="8080" to ### Connector port="8081"
                redirectPort="8443" />
     -->
 ```
-
+# Start apache with script name startapache.sh
 ```
 #!/bin/bash
 cd /opt/tomcat/apache-tomcat-9.0.68/bin
