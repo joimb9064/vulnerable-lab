@@ -53,7 +53,6 @@ echo "Installing postfix smtp server"
 sudo apt update
 sudo apt install postfix
 sudo cp /etc/postfix/main.cf /etc/postfix/main.cf.bk
-
 echo "smtp done"
 
 #Log4j PoC
