@@ -278,8 +278,8 @@ sudo nano /etc/samba/smb.conf
  guest ok = yes
  read only = no
  force user = nobody
-[users]
-    path = /samba/users
+[Alice]
+    path = /samba/alice
     browseable = yes
     valid users = @smbgrp
     read only = no
