@@ -48,6 +48,14 @@ tar -xf apache-tomcat-9.0.71.tar.gz
 sudo mv apache-tomcat-9.0.71 /opt
 echo "apache tomcat is done"
 
+#Postfix smtp
+echo "Installing postfix smtp server"
+sudo apt update
+sudo apt install postfix
+sudo cp /etc/postfix/main.cf /etc/postfix/main.cf.bk
+
+echo "smtp done"
+
 #Log4j PoC
 echo "*********log4j poc************"
 mkdir ~/mylog4j
