@@ -1,10 +1,17 @@
 # Vulnerable server
-### You can use this script and the configurations that follow to create vulnerable lab for network pentest training
+### You can use this script and the configurations that follow to create vulnerable lab for network pentest training on Ubuntu
 #### The script will install the following
 * James-2.3.2 vulnerable server with smtp
 * Apache-tomcat
 * Samba
 * Log4j PoC
+### Platform 
+* Install VM Player on Windows or Parrallel Desktop on Mac
+* Install Ubuntu
+* Create a .sh file on the Ubuntu VM 
+* Copy the script below to the and save it
+* Run the chmod +x script.sh
+* ./script.sh and follow the instructions 
 ### Misconfigurations
 * Misconfigured crontab file
 * SSH key with weak password
