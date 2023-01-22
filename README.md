@@ -137,7 +137,7 @@ Modify the manager section of the tomcat-users.xml file as follows:
 ### Configure apache-tomcat Listening port
 Go to / opt/apache-tomcat-9.0.71/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
 
-Change * Connector port="8080" * to  * Connector port="8081" *
+Change **Connector port="8080"** to  **Connector port="8081"**
 
 ```
 <!-- A "Connector" represents an endpoint by which requests are received
