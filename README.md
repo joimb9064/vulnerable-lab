@@ -8,7 +8,6 @@
 ### Misconfigurations
 * Misconfigured crontab file
 * SSH key with weak password
-* Samba flag
 * Make manager interface of apache-tomcat public
 
 ```
