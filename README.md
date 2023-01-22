@@ -170,7 +170,7 @@ sudo ./startapache.sh
 
 ## Log4j PoC
 
-Modify the poc.py file to point to the jAVA_HOME as follows:
+Modify the poc.py file to point to the JAVA_HOME as follows:
 ```
 …
 #!/usr/bin/env python3
