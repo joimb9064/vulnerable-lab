@@ -8,7 +8,7 @@
 ### Platform 
 * Install VM Player on Windows or Parrallel Desktop on Mac
 * Install Ubuntu
-* Create a .sh file on the Ubuntu VM 
+* Create a script.sh file on the Ubuntu VM 
 * Copy the script below to the file and save it
 * Run the chmod +x script.sh
 * ./script.sh and follow the instructions 
