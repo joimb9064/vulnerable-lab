@@ -115,7 +115,7 @@ chmod + startjamesserver.sh
 ./startjamesserver.sh to start the server.
 
 ## Apache Tomcat Configuration
-Open the tomcat-users.xml in the /opt/apache-tomcat-9.0.68/conf
+Open the tomcat-users.xml in the /opt/apache-tomcat-xxx/conf
 
 Modify the manager section of the tomcat-users.xml file as follows:
  
