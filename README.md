@@ -163,6 +163,16 @@ Change **Connector port="8080"** to  **Connector port="8081"**
                redirectPort="8443" />
     -->
 ```
+### Configure host
+```
+sudo nano ${CATLINA_HOME}/conf/Catalina/localhost/manager.xml 
+#file should look like this
+	
+<Context privileged="true" antiResourceLocking="false" 
+         docBase="{catalina.home}/webapps/manager">
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
+</Context>
+```
 ### Start apache with script name startapache.sh
 ```
 #!/bin/bash
