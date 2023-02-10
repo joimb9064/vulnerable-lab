@@ -34,13 +34,6 @@ sudo chmod +x /opt/james-2.3.2/bin/*.sh
 echo "***********james server done **********"
 
 
-#Postfix smtp
-echo "Installing postfix smtp server"
-sudo apt update
-sudo apt install postfix
-sudo cp /etc/postfix/main.cf /etc/postfix/main.cf.bk
-echo "***smtp done***"
-
 #Install ssh server
 sudo apt -y install openssh-server
 sudo systemctl enable --now ssh
