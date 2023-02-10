@@ -1,3 +1,9 @@
+# Docker version of the lab 
+- docker pull iconx2020a/vuln:tomcatamd
+- docker pull iconx2020a/vuln:log4j
+- docker pull iconx2020a/vuln:log4jpayloadlinux
+- Use the docker-compose.yml file to run the two log4j images (if you like)
+- docker pull iconx2020a/vuln:james (doesnt work well)
 # Configuration
 The script will configure all the files below already. Just verify if individual files have the right content.
 
@@ -60,7 +66,7 @@ Modify the manager section of the tomcat-users.xml file as follows:
 
 
 ### Configure apache-tomcat Listening port
-Go to / opt/apache-tomcat-9.0.71/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
+Go to / opt/apache-tomcat-xxx/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
 
 Change **Connector port="8080"** to  **Connector port="8081"**
 
