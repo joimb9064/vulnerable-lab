@@ -15,6 +15,10 @@ The script will install the following:
 - Install Ubuntu
 - Create a script.sh file on the Ubuntu VM
 - Clone the repository
+## For Pc
+- Run the chmod +x script.sh
+- ./script.sh and follow the instructions
+## For Mac
 - Run the chmod +x script.sh
 - ./script.sh and follow the instructions
 
