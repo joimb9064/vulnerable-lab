@@ -4,7 +4,7 @@ services:
            container_name: log4j-server
            image: iconx2020/vuln:log4j
            network_mode: "host"
-       mongo:
+       log4j-payload:
              container_name: log4j-payload
              image: iconx2020a/vuln:log4jpayloadlinux
              network_mode: "host"
