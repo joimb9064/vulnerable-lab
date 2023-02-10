@@ -122,7 +122,7 @@ Modify the manager section of the tomcat-users.xml file as follows:
 ```
 <role rolename="manager-gui"/>
 <user username="tomcat" password="tomcat" roles="manager-gui"/>
-</tomcat-users>
+
 
 …
 <!--
