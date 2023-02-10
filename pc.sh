@@ -8,6 +8,8 @@ echo "*********Install samba*********"
 sudo apt install samba -y
 sudo mkdir -p /samba
 sudo ufw allow samba
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk
+sudo cp smb.conf /etc/samba/
 echo "*******samba done**********"
 
 #install docker
