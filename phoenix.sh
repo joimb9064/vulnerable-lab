@@ -26,7 +26,7 @@
 #                      variable controls the delay and defaults to 5 (seconds)
 #
 # -----------------------------------------------------------------------------
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
  
  
 usage()
