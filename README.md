@@ -160,7 +160,7 @@ Change **Connector port="8080"** to  **Connector port="8081"**
                redirectPort="8443" />
     -->
 ```
-### Configure host
+### Configure remote host access
 Create the folder or file Catalina/localhost/manager.xml if they don´t exist
 ```
 sudo nano ${CATLINA_HOME}/conf/Catalina/localhost/manager.xml 
