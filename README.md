@@ -132,9 +132,6 @@ Modify the manager section of the tomcat-users.xml file as follows:
   <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
   <user username="role1" password="<must-be-changed>" roles="role1"/>
 -->
-<role rolename="manager-gui"/>
-<user username="tomcat" password="tomcat" roles="manager-gui"/>
-</tomcat-users>
 
 ```
 
