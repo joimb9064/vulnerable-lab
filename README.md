@@ -1,9 +1,9 @@
 # Docker version of the lab 
-- docker pull iconx2020a/vuln:tomcatamd
-- docker pull iconx2020a/vuln:log4j
-- docker pull iconx2020a/vuln:log4jpayloadlinux
-- Use the docker-compose.yml file to run the two log4j images (if you like)
-- docker pull iconx2020a/vuln:james (doesnt work well)
+- docker run --network host iconx2020a/vuln:tomcatamd
+- docker run --network host iconx2020a/vuln:log4j
+- docker run --network host iconx2020a/vuln:log4jpayloadlinux
+- OR use the docker-compose.yml file to run the two log4j images (if you like)
+- docker run --network host iconx2020a/vuln:james (doesnt work well)
 # Configuration
 The script will configure all the files below already. Just verify if individual files have the right content.
 
