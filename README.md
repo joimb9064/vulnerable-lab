@@ -64,9 +64,9 @@ chmod + startjamesserver.sh
 cd /opt/tomcat/apache-tomcat-xxx/bin
 ./startup.sh
 ```
-## Run tomcat script
-chmod +x startapache.sh
-sudo ./startapache.sh
+## Run apache script
+- chmod +x startapache.sh
+- sudo ./startapache.sh
 
 
 ## Log4j PoC
