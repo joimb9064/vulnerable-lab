@@ -1,38 +1,39 @@
 
 # Vulnerable servers
 
-You can use this script and the configurations that follow to create vulnerable lab for network pentest training on Ubuntu
+The scripts in this repository is to help you quickly setup a vulnerable network lab for your training. The two main scripts are the pc.sh and mac.sh. The pc.sh is for virtual machines runnning on PC while the mac.sh is for virtual machines running on machine. The pc.sh script has few lines less than the mac.sh script because it will supplemented by docker container labs from iconx2020a/vuln docker repository. You will running the following docker containers in addition for pc labs: 
+- docker run --network host iconx2020a/vuln:tomcatamd (pc lab)
+- docker run --network host iconx2020a/vuln:log4j (pc lab)
+- docker run --network host iconx2020a/vuln:log4jpayloadlinux
+- OR use the docker-compose.yml file to run the two log4j images (if you like)
 
-The script will install the following:
+For mac labs you may run the following in addition
+- docker run --network host iconx2020a/vuln:tomcatm1m2 or docker run --network host iconx2020a/vuln:tomcatm1 (mac lab)
+- docker run --network host iconx2020a/vuln:log4jm1 (mac lab)
+- docker run --network host iconx2020a/vuln:log4jpayloadm1 (mac lab) or OR use the docker-composem1m2.yml 
+
+* tomcat container is for exploiting tomcat misconfiguration while the log4j is for log4j vulnerability exploitation.
+
+You will install the following labs after you run the the scripts:
 
 - James-2.3.2 vulnerable server with smtp
 - Apache-tomcat
 - Samba
 - Log4j PoC
+- ssh server
 
 ## Platform
-- Install VM Player on Windows or Parrallel Desktop on Mac
+- Install VM Player on Windows or Parrallel Desktop on Mac (whichever works for you)
 - Install Ubuntu
-- Create a script.sh file on the Ubuntu VM
-- Clone the repository
-## For Pc
-- Run the chmod +x script.sh
-- ./script.sh and follow the instructions
-## For Mac
-- Run the chmod +x script.sh
-- ./script.sh and follow the instructions
+- Crone repository on your VM
+- Change the mode of the appropriate script to executable with chmod +x pc.sh or chmod +x mac.sh
+- Run the script as sudo ./pc.sh or sudo ./mac.sh
 
 ## Misconfigurations
 - Misconfigured crontab file
 - SSH key with weak password
 - Make manager interface of apache-tomcat public
 
-## Docker version of the lab 
-- docker run --network host iconx2020a/vuln:tomcatamd
-- docker run --network host iconx2020a/vuln:log4j
-- docker run --network host iconx2020a/vuln:log4jpayloadlinux
-- OR use the docker-compose.yml file to run the two log4j images (if you like)
-- docker run --network host iconx2020a/vuln:james (doesnt work well)
 # Configuration
 The script will configure all the files below already. Just verify if individual files have the right content.
 
