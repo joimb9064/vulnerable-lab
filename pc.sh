@@ -36,6 +36,7 @@ echo "***********james server done **********"
 
 #Install ssh server
 sudo apt -y install openssh-server
+sudo cp sshd_config /etc/ssh/
 sudo systemctl enable --now ssh
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
