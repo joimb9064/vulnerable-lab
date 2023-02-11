@@ -57,7 +57,14 @@ echo "----------log4j poc installation done----------"
 #Install ssh server
 echo "***********SSH*******************"
 sudo apt -y install openssh-server
-sudo cp sshd_config /etc/ssh
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk 
+chmod 644 sshd_config
+sudo cp sshd_config /etc/ssh/
 sudo systemctl enable --now ssh
+#crontab
+sudo cp /etc/crontab /etc/crontab.bk
+chmod 644 crontab
+sudo cp crontab /etc/
+
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
