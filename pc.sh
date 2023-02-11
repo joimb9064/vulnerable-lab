@@ -5,8 +5,11 @@ sudo apt update
 sudo apt install openjdk-8-jdk -y
 #Samba
 echo "*********Install samba*********"
-sudo apt install samba -y
+sudo apt -y install samba 
 sudo mkdir -p /samba
+sudo mkdir -p /samba/alice
+sudo mkdir -p /samba/josh
+sudo mkdir -p /samba/james
 sudo ufw allow samba
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk
 sudo cp smb.conf /etc/samba/
@@ -15,17 +18,17 @@ echo "*******samba done**********"
 #install docker
 echo "***********Install docker***********"
 sudo apt update
-sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
-sudo apt install docker-ce -y
+sudo apt -y install docker-ce
 sudo usermod -aG docker ${USER}
 echo "*********docker is done**********"
 
 #install james server
 echo "*********install james server********"
-sudo apt install bash-completion  
+sudo apt -y install bash-completion  
 curl -O https://archive.apache.org/dist/james/server/apache-james-2.3.2.tar.gz
 tar -xzf apache-james-2.3.2.tar.gz
 sudo cp -r james-2.3.2 /opt
