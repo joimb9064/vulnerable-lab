@@ -61,7 +61,7 @@ chmod + startjamesserver.sh
 ### Start apache with script name startapache.sh
 ```
 #!/bin/bash
-cd /opt/tomcat/apache-tomcat-9.0.68/bin
+cd /opt/tomcat/apache-tomcat-xxx/bin
 ./startup.sh
 ```
 ## Run tomcat script
