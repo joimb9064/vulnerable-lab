@@ -10,7 +10,8 @@ The scripts in this repository is to help you quickly setup a vulnerable network
 For mac labs you may run the following in addition
 - docker run --network host iconx2020a/vuln:tomcatm1m2 or docker run --network host iconx2020a/vuln:tomcatm1 (mac lab)
 - docker run --network host iconx2020a/vuln:log4jm1 (mac lab)
-- docker run --network host iconx2020a/vuln:log4jpayloadm1 (mac lab) **OR use the docker-composem1m2.yml to run the log4j containers together** 
+- docker run --network host iconx2020a/vuln:log4jpayloadm1 (mac lab) 
+- **OR use the docker-composem1m2.yml to run the log4j containers together** 
 
 **We will also run vulnerable samba container from vulhub to demonstrate one of recent samba vulnerabilities.**
 
@@ -26,15 +27,18 @@ Tomcat container is for exploiting tomcat misconfiguration while the log4j is fo
 - Install Ubuntu
 - Crone repository on your VM
 - Change the mode of the appropriate script to executable with chmod +x pc.sh or chmod +x mac.sh
-- Run the script as sudo ./pc.sh or sudo ./mac.sh
-
+- Run the script as **sudo ./pc.sh or sudo ./mac.sh**
+## Attacker VM
+You may install kali or parrotsec machine (https://www.parrotsec.org/download/)
 ## Misconfigurations
 - crontab file misconfiguration
 - Weak SSH password
 - Exposing apache-tomcat manager interface
 
 ## Configurations
-You will find all configurations and misconfigurations in the files in this repositories. The pc.sh and the mac.sh will copy all the files to the right locations to automatically configure the lab for you.
+You will find all configurations and misconfigurations in the files in this repositories. The pc.sh and the mac.sh will copy all the files to the right locations to automatically configure the lab for you. **No need to do anything unless you have issues after installation.** 
+
+The rest of the sections below will give few details about the files for your understanding. 
 
 ### Create Start James server Script with the name startjamesserver.sh
 ```
