@@ -38,8 +38,14 @@ echo "***********james server done **********"
 
 #Install ssh server
 sudo apt -y install openssh-server
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk 
 sudo cp sshd_config /etc/ssh/
 sudo systemctl enable --now ssh
+#crontab
+sudo cp /etc/crontab /etc/crontab.bk
+chmod 644 crontab
+sudo cp crontab /etc/
+
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
 sudo systemctl restart smbd
