@@ -45,6 +45,7 @@ cd /opt/james-2.3.2/bin
 echo "apache james server started"
 sudo ./run.sh
 ```
+
 ### Run 
 
 chmod + startjamesserver.sh
@@ -62,15 +63,15 @@ chmod + startjamesserver.sh
 #!/bin/bash
 cd /opt/tomcat/apache-tomcat-9.0.68/bin
 ./startup.sh
-
+```
+## Run tomcat script
 chmod +x startapache.sh
 sudo ./startapache.sh
-```
+
 
 ## Log4j PoC
 
 Modify the poc.py file to point to the JAVA_HOME. This already done in the poc.py file.
-
 Run the payload generator to generate payload script
 
 ```
