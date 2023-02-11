@@ -36,9 +36,9 @@ You may install kali or parrotsec machine (https://www.parrotsec.org/download/)
 - Exposing apache-tomcat manager interface
 
 ## Configurations
-You will find all configurations and misconfigurations in the files in this repositories. The pc.sh and the mac.sh will copy all the files to the right locations to automatically configure the lab for you. **No need to do anything unless you have issues after installation.** 
+You will find all configurations and misconfigurations in the files in this repositories. The **pc.sh** and the **mac.sh** will copy all the files to the right locations to automatically configure the lab for you. **No need to do anything unless you have issues after installation.** 
 
-The rest of the sections below will give few details about the files for your understanding. 
+The rest of the sections below will give few details about the files for your understanding only. 
 
 ### Create Start James server Script with the name startjamesserver.sh
 ```
