@@ -39,6 +39,7 @@ echo "***********james server done **********"
 #Install ssh server
 sudo apt -y install openssh-server
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk 
+chmod 644 sshd_config
 sudo cp sshd_config /etc/ssh/
 sudo systemctl enable --now ssh
 #crontab
