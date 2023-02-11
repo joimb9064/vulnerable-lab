@@ -33,7 +33,6 @@ sudo cp phoenix.sh /opt/james-2.3.2/bin/
 sudo chmod +x /opt/james-2.3.2/bin/*.sh
 echo "***********james server done **********"
 
-
 #Install ssh server
 sudo apt -y install openssh-server
 sudo cp sshd_config /etc/ssh/
