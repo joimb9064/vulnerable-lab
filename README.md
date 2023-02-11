@@ -5,7 +5,7 @@ The scripts in this repository is to help you quickly setup a vulnerable network
 - docker run --network host iconx2020a/vuln:tomcatamd (pc lab)
 - docker run --network host iconx2020a/vuln:log4j (pc lab)
 - docker run --network host iconx2020a/vuln:log4jpayloadlinux
-- OR use the docker-compose.yml file to run the two log4j images (if you like)
+- OR use the docker-compose.yml file to run the two log4j containers together (if you like)
 
 For mac labs you may run the following in addition
 - docker run --network host iconx2020a/vuln:tomcatm1m2 or docker run --network host iconx2020a/vuln:tomcatm1 (mac lab)
