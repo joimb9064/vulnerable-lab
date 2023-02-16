@@ -26,6 +26,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 sudo apt update
 sudo apt -y install docker.io
 sudo usermod -aG docker ${USER}
+sudo apt -y install docker-compose 
 echo "*********docker is done**********"
 
 #install james server
