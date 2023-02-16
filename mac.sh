@@ -21,7 +21,7 @@ sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-pro
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
-sudo apt -y install docker-ce 
+sudo apt -y install docker.io 
 sudo usermod -aG docker ${USER}
 echo "*********docker is done**********"
 
