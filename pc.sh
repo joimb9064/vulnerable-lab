@@ -13,6 +13,8 @@ sudo mkdir -p /samba/james
 sudo ufw allow samba
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk
 sudo cp smb.conf /etc/samba/
+sudo cp private.key /samba/alice
+sudo cp private.key /samba/josh
 echo "*******samba done**********"
 
 #install docker
@@ -41,6 +43,11 @@ sudo apt -y install openssh-server
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bk 
 chmod 644 sshd_config
 sudo cp sshd_config /etc/ssh/
+sudo cp private.key ~/.ssh/
+sudo cp public.pub ~/.ssh/
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+cat public.pub >> ~/.ssh/authorized_keys
 sudo systemctl enable --now ssh
 #crontab
 sudo cp /etc/crontab /etc/crontab.bk
