@@ -9,6 +9,8 @@ sudo mkdir -p /samba
 sudo mkdir -p /samba/alice
 sudo mkdir -p /samba/josh
 sudo mkdir -p /samba/james
+sudo mkdir -p /home/share
+sudo chmod 777 /home/share
 sudo cp private.key /samba/alice
 sudo cp private.key /samba/josh
 sudo ufw allow samba
