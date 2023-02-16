@@ -10,6 +10,8 @@ sudo mkdir -p /samba
 sudo mkdir -p /samba/alice
 sudo mkdir -p /samba/josh
 sudo mkdir -p /samba/james
+sudo mkdir -p /home/share
+sudo chmod 777 /home/share
 sudo ufw allow samba
 sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bk
 sudo cp smb.conf /etc/samba/
