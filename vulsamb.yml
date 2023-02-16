@@ -1,3 +1,4 @@
+  GNU nano 6.2                                  vulsamb.yml                                            
 version: "3"
 services:
    samba:
@@ -5,4 +6,5 @@ services:
      network_mode: "host"
      tty: true
      volumes:
-      - ./vulsmb.conf:/user/etc/smb.conf
+      - ./vulsmb.conf:/usr/local/samba/etc/smb.conf
+
