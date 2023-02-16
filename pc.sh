@@ -54,6 +54,7 @@ sudo systemctl enable --now ssh
 sudo cp /etc/crontab /etc/crontab.bk
 chmod 644 crontab
 sudo cp crontab /etc/
+sudo apt -y install net-tools
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
