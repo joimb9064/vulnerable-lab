@@ -26,7 +26,7 @@ Tomcat container is for exploiting tomcat misconfiguration while the log4j is fo
 - Install VM Player on Windows or Parrallel Desktop on Mac (whichever works for you)
 - Install Ubuntu
 - Crone repository on your VM
-- Change the mode of the appropriate script to executable with chmod +x pc.sh or chmod +x mac.sh
+- Change the mode of the appropriate script to executable with **chmod +x pc.sh** or **chmod +x mac.sh**
 - Run the script as **sudo ./pc.sh or sudo ./mac.sh**
 ## Attacker VM
 You may install kali or parrotsec machine (https://www.parrotsec.org/download/)
@@ -51,12 +51,12 @@ sudo ./run.sh
 
 ### Run 
 
-chmod + startjamesserver.sh
+**chmod + startjamesserver.sh**
 
-./startjamesserver.sh to start the server.
+**./startjamesserver.sh** to start the server.
 
 ## Apache Tomcat Configuration 
-* This is for your information only. You dont need to do anything, the scripts will do everything for you.
+**This is for your information only. You dont need to do anything, the scripts will do everything for you**.
 - Add the user and role to the tomcat-users.xml in the /opt/apache-tomcat-xxx/conf
 - Modify the manager file in the Catalina directory to allow remote access (see the manager.xml file)
 - Open the port 8081 in the / opt/apache-tomcat-xxx/conf/server.xml file to avoid conflict with log4j which is running on port 8080. 
