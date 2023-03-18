@@ -15,7 +15,7 @@ For mac labs you may run the following in addition
 
 **We will also run vulnerable samba container from vulhub to demonstrate one of recent samba vulnerabilities.**
 
-Tomcat container is for exploiting tomcat misconfiguration while the log4j is for exploitation of log4j vulnerability. The pc.sh or mac.sh script will install the following vyulnerable machines:
+Tomcat container is for exploiting tomcat misconfiguration while the log4j is for exploitation of log4j vulnerability. The pc.sh or mac.sh script will install the following vulnerable machines:
 - James-2.3.2 vulnerable server with smtp
 - Apache-tomcat
 - Samba
