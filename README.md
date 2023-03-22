@@ -1,7 +1,7 @@
 
 # Vulnerable servers
 
-The scripts in this repository is to help you quickly setup a vulnerable network lab for your training. The two main scripts are the pc.sh and mac.sh. The pc.sh is for virtual machines runnning on PC while the mac.sh is for virtual machines running on machine. The pc.sh script has few lines less than the mac.sh script because it will be supplemented by docker container labs from **iconx2020a/vuln docker repository**. You will running the following docker containers in addition for pc the labs: 
+The scripts in this repository is to help you quickly setup a vulnerable network lab for your training. The two main scripts are the pc.sh and mac.sh. The pc.sh is for virtual machines runnning on PC while the mac.sh is for virtual machines running on Mac. The pc.sh script has few lines less than the mac.sh script because it will be supplemented by docker container labs from **iconx2020a/vuln docker repository**. You will running the following docker containers in addition for the PC labs: 
 - docker run --network host iconx2020a/vuln:tomcatamd (pc lab)
 - docker run --network host iconx2020a/vuln:log4j (pc lab)
 - docker run --network host iconx2020a/vuln:log4jpayloadlinux
@@ -15,7 +15,7 @@ For mac labs you may run the following in addition
 
 **We will also run vulnerable samba container from vulhub to demonstrate one of recent samba vulnerabilities.**
 
-Tomcat container is for exploiting tomcat misconfiguration while the log4j is for exploitation of log4j vulnerability. The pc.sh or mac.sh script will install the following vulnerable machines:
+Tomcat container is for exploiting tomcat misconfiguration while the log4j is for exploitation of log4j vulnerability. The pc.sh or mac.sh script will install the following vulnerable server on your machine:
 - James-2.3.2 vulnerable server with smtp
 - Apache-tomcat
 - Samba
