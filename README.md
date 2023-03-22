@@ -29,7 +29,7 @@ Tomcat container is for exploiting tomcat misconfiguration while the log4j is fo
 - Change the mode of the appropriate script to executable with **chmod +x pc.sh** or **chmod +x mac.sh**
 - Run the script as **sudo ./pc.sh or sudo ./mac.sh**
 ## Attacker VM
-You may install kali or parrotsec machine (https://www.parrotsec.org/download/)
+You may install kali (https://www.kali.org/) or parrotsec machine (https://www.parrotsec.org/download/)
 ## Misconfigurations
 - crontab file misconfiguration
 - Weak SSH password
