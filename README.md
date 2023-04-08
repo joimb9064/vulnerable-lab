@@ -111,15 +111,15 @@ Copy the payload ${jndi:ldap://localhost:1389/a} and paste it in the username fi
 ## Samba config
 ### Create Users password
 ```
-sudo useradd -m username  # or run the ./createuser.sh script to create users.
-#add samba password
+Run the ./createusers.sh script to create users.
+#add samba password to individual users
 sudo smbpasswd -a username
 #add system password for users
 sudo passwd username
 #it is possible to sync password but we want to keep it simple here
 ```
 ### Configure the Samba users in the smb.conf.
-Use the smb.conf file. This will be done automatcically by the script. 
+Use the smb.conf file. This will be done automatcically by the script to /etc/samba directory. 
 ### Restart
 sudo systemctl restart smbd
 
