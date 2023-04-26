@@ -67,9 +67,8 @@ echo "********About to install apache tomcat***"
 curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
 tar -xvzf apache-tomcat-10.1.8.tar.gz
 cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
-mkdir -p Catalina/localhost
-cp manager.xml Catalina/localhost
-mv Catalina/localhost apache-tomcat-10.1.8/conf/
+cp apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml.bk
+cp context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml 
 sudo mv apache-tomcat-10.1.8 /opt
 
 echo "----------------apache tomcat installation  done---------------"
