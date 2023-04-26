@@ -64,6 +64,7 @@ sudo systemctl restart smbd
 
 #Tomcat
 echo "********About to install apache tomcat***"
+sudo apt install default-jdk -y
 curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
 tar -xvzf apache-tomcat-10.1.8.tar.gz
 cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
