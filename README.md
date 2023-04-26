@@ -62,6 +62,8 @@ sudo ./run.sh
 - Open the port 8081 in the / opt/apache-tomcat-xxx/conf/server.xml file to avoid conflict with log4j which is running on port 8080. 
 
 ### Start apache with script name startapache.sh
+**copy the manager file to the apache-tomcat folder with the command**
+sudo cp manager.xml /opt/apache-tomcat-10.1.8/conf/Catalina/localhost
 ```
 #!/bin/bash
 cd /opt/tomcat/apache-tomcat-xxx/bin
@@ -70,7 +72,6 @@ cd /opt/tomcat/apache-tomcat-xxx/bin
 ## Run apache script
 - chmod +x startapache.sh
 - sudo ./startapache.sh
-
 
 ## Log4j PoC
 
