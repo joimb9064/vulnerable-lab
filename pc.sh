@@ -82,7 +82,5 @@ cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
 cp apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml.bk
 cp context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml 
 sudo mv apache-tomcat-10.1.8 /opt
-
 echo "----------------apache tomcat installation  done---------------"
-
-
+#copy sudo cp manager.xml /opt/apache-tomcat-10.1.8/conf/Catalina/localhost
