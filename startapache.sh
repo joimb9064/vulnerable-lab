@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /opt/tomcat/apache-tomcat-xxx/bin
+cd /opt/tomcat/apache-tomcat-10.1.8/bin
 ./startup.sh
