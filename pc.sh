@@ -62,18 +62,6 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
 sudo systemctl restart smbd
 
-#Tomcat
-echo "********About to install apache tomcat***"
-sudo apt install default-jdk -y
-curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
-tar -xvzf apache-tomcat-10.1.8.tar.gz
-cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
-cp apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml.bk
-cp context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml 
-sudo mv apache-tomcat-10.1.8 /opt
-
-echo "----------------apache tomcat installation  done---------------"
-
 #Log4j PoC
 echo "*********log4j poc************"
 mkdir ~/mylog4j
@@ -85,6 +73,16 @@ sudo apt install python3-pip
 pip install -r requirements.txt
 echo "----------log4j poc installation done----------"
 
+#Tomcat
+echo "********About to install apache tomcat***"
+sudo apt install default-jdk -y
+curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
+tar -xvzf apache-tomcat-10.1.8.tar.gz
+cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
+cp apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml.bk
+cp context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml 
+sudo mv apache-tomcat-10.1.8 /opt
 
+echo "----------------apache tomcat installation  done---------------"
 
 
