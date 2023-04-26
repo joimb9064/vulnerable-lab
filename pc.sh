@@ -64,11 +64,14 @@ sudo systemctl restart smbd
 
 #Tomcat
 echo "********About to install apache tomcat***"
-curl -O https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz
-tar -xf apache-tomcat-10.0.27.tar.gz
-cp server.xml tomcat-users.xml apache-tomcat-10.0.27/conf
-cp manager.xml apache-tomcat-10.0.27/conf/Catalina/localhost/
-sudo mv apache-tomcat-10.0.27 /opt
+curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
+tar -xvzf apache-tomcat-10.1.8.tar.gz
+cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
+mkdir -p Catalina/localhost
+cp manager.xml Catalina/localhost
+mv Catalina/localhost apache-tomcat-10.1.8/conf/
+sudo mv apache-tomcat-10.1.8 /opt
+
 echo "----------------apache tomcat installation  done---------------"
 
 #Log4j PoC
