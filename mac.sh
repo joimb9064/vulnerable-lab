@@ -38,15 +38,6 @@ sudo cp phoenix.sh /opt/james-2.3.3/bin/
 sudo chmod +x /opt/james-2.3.2/bin/*.sh
 echo "----------james server installation done ---------------"
 
-#Tomcat
-echo "********About to install apache tomcat***"
-curl -O https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz
-tar -xf apache-tomcat-10.0.27.tar.gz
-cp server.xml tomcat-users.xml apache-tomcat-10.0.27/conf
-cp manager.xml apache-tomcat-10.0.27/conf/Catalina/localhost/
-sudo mv apache-tomcat-10.0.27 /opt
-echo "----------------apache tomcat installation  done---------------"
-
 #Log4j PoC
 echo "*********log4j poc************"
 mkdir ~/mylog4j
@@ -79,3 +70,16 @@ sudo apt -y install net-tools
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
+
+
+#Tomcat
+echo "********About to install apache tomcat***"
+sudo apt install default-jdk -y
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
+tar -xvzf apache-tomcat-10.1.17.tar.gz
+sudo cp server.xml tomcat-users.xml apache-tomcat-10.1.17/conf
+sudo cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
+sudo cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+sudo mv apache-tomcat-10.1.17 /opt
+echo "----------------apache tomcat installation  done---------------"
+#sudo cp manager.xml apache-tomcat-10.0.27/conf/Catalina/localhost/
