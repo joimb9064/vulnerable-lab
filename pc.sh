@@ -76,11 +76,11 @@ echo "----------log4j poc installation done----------"
 #Tomcat
 echo "********About to install apache tomcat***"
 sudo apt install default-jdk -y
-curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
-tar -xvzf apache-tomcat-10.1.8.tar.gz
-cp server.xml tomcat-users.xml apache-tomcat-10.1.8/conf
-cp apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml.bk
-cp context.xml apache-tomcat-10.1.8/webapps/host-manager/META-INF/context.xml 
-sudo mv apache-tomcat-10.1.8 /opt
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
+tar -xvzf apache-tomcat-10.1.17.tar.gz
+sudo cp server.xml tomcat-users.xml apache-tomcat-10.1.17/conf
+sudo cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
+sudo cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+sudo mv apache-tomcat-10.1.17 /opt
 echo "----------------apache tomcat installation  done---------------"
 #copy sudo cp manager.xml /opt/apache-tomcat-10.1.8/conf/Catalina/localhost
