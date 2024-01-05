@@ -55,7 +55,10 @@ tar -xzf apache-james-2.3.2.tar.gz
 sudo cp -r james-2.3.2 /opt
 sudo cp phoenix.sh /opt/james-2.3.2/bin/
 sudo chmod +x /opt/james-2.3.2/bin/*.sh
-sudo cp  /opt/james-2.3.2/apps/james/SAR-INF/config.xml  /opt/james-2.3.2/apps/james/SAR-INF/config.xml.bk
+# copy this file this file after your first email to disable spam
+#sudo cp  /opt/james-2.3.2/apps/james/SAR-INF/conf.xml  /opt/james-2.3.2/apps/james/SAR-INF/conf.xml.bk
+#copy this after your first email
+#sudo cp ~/vulnerable-lab/james-fetchmail.xml /opt/james-2.3.2/apps/james/conf/
 echo "***********james server done **********"
 
 #Install ssh server
@@ -96,16 +99,13 @@ sudo apt install default-jdk -y
 wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
 tar -xvzf apache-tomcat-10.1.17.tar.gz
 #sudo mv apache-tomcat-10.1.17 /opt
-exit
-cd ~/vulnerable-lab/
-
-cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf
+#exit
+#cd ~/vulnerable-lab/
+#recopy if copy fails
+cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf/
 cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
-cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/ 
 sudo mv apache-tomcat-10.1.17 /opt
-sudo cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
-sudo cp james-fetchmail.xml /opt/james-2.3.2/apps/james/conf/
-
 
 echo "----------------apache tomcat installation  done---------------"
 
