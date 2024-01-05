@@ -98,10 +98,12 @@ tar -xvzf apache-tomcat-10.1.17.tar.gz
 #sudo mv apache-tomcat-10.1.17 /opt
 exit
 cd ~/vulnerable-lab/
-cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
+
 cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf
 cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
 cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+sudo cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
 sudo mv apache-tomcat-10.1.17 /opt
+
 echo "----------------apache tomcat installation  done---------------"
 
