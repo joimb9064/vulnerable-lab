@@ -55,6 +55,8 @@ tar -xzf apache-james-2.3.2.tar.gz
 sudo cp -r james-2.3.2 /opt
 sudo cp phoenix.sh /opt/james-2.3.2/bin/
 sudo chmod +x /opt/james-2.3.2/bin/*.sh
+sudo cp  /opt/james-2.3.2/apps/james/SAR-INF/config.xml  /opt/james-2.3.2/apps/james/SAR-INF/config.xml.bk
+sudo cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
 echo "***********james server done **********"
 
 #Install ssh server
@@ -94,9 +96,10 @@ echo "********About to install apache tomcat***"
 sudo apt install default-jdk -y
 wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
 tar -xvzf apache-tomcat-10.1.17.tar.gz
-sudo cp server.xml tomcat-users.xml apache-tomcat-10.1.17/conf
-sudo cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
-sudo cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
 sudo mv apache-tomcat-10.1.17 /opt
+sudo cp server.xml tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
+sudo cp opt/apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml /opt/apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
+sudo cp context.xml opt/apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+#sudo mv apache-tomcat-10.1.17 /opt
 echo "----------------apache tomcat installation  done---------------"
 
