@@ -99,10 +99,9 @@ tar -xvzf apache-tomcat-10.1.17.tar.gz
 #sudo mv apache-tomcat-10.1.17 /opt
 exit
 cd ~/vulnerable-lab/
-sudo cp server.xml tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
-sudo cp tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
-sudo cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
-sudo cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf
+cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
+cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
 sudo mv apache-tomcat-10.1.17 /opt
 echo "----------------apache tomcat installation  done---------------"
 
