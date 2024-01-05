@@ -330,7 +330,8 @@ Regards, Postmaster XXX.YYY
          </mailet>
 -->
          <!-- Spam checking will not be done twice -->
-   <!--      <mailet match="All" class="SetMailAttribute">
+   <!--      
+       <mailet match="All" class="SetMailAttribute">
             <spamChecked>true</spamChecked>
          </mailet>
 -->
@@ -344,7 +345,8 @@ Regards, Postmaster XXX.YYY
 
          <!-- Messages from authenticated senders never are spam -->
 
-<!--         <mailet match="SMTPAuthSuccessful" class="ToProcessor">
+<!--        
+       <mailet match="SMTPAuthSuccessful" class="ToProcessor">
             <processor> transport </processor>
          </mailet>
 -->
@@ -352,6 +354,7 @@ Regards, Postmaster XXX.YYY
          <!-- Uncommenting the following entry, messages with valid signatures will never be considered spam. -->
          <!-- This can be a valid policy *if* SMIMECheckSignature was invoked -->
          <!-- with <onlyTrusted>true</onlyTrusted> set -->
+       
          <!--
          <mailet match="HasMailAttribute=org.apache.james.SMIMECheckSignature" class="ToProcessor">
             <processor> transport </processor>
@@ -359,6 +362,7 @@ Regards, Postmaster XXX.YYY
          -->
 
          <!-- specific known senders -->
+       
          <!--
          <mailet match="SenderIs=goodboy@goodhost"
                  class="ToProcessor">
@@ -382,6 +386,7 @@ Regards, Postmaster XXX.YYY
 
          <!-- If the sender is in a recipient's whitelist, it is a valid sender, -->
          <!-- and as such the message should not be considered spam for such recipient. -->
+       
          <!--
          <mailet match="IsInWhiteList=db://maildb" class="ToProcessor" onMatchException="noMatch">
             <processor> transport </processor>
@@ -400,14 +405,14 @@ Regards, Postmaster XXX.YYY
            <processor> spam </processor>
            <notice>550 Requested action not taken: rejected - see http://njabl.org/ </notice>
          </mailet>
-    -->     
+ -->     
          <!-- Sample matching to kill a message (send to Null) -->
          <!--
          <mailet match="RecipientIs=badboy@badhost" class="Null"/>
          -->
 
          <!-- Anti spam bayesian analysis -->
-         <!--
+  <!--
          <mailet match="All" class="BayesianAnalysis" onMailetException="ignore">
             <repositoryPath>db://maildb</repositoryPath>
         <maxSize>200000</maxSize>
@@ -428,7 +433,7 @@ Regards, Postmaster XXX.YYY
             <processor> spam </processor>
             <notice>Spam not accepted</notice>
          </mailet>
-         -->
+   -->
 
          <!-- Send remaining mails to the transport processor for either local or remote delivery -->
          <mailet match="All" class="ToProcessor">
