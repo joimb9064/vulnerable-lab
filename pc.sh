@@ -56,7 +56,6 @@ sudo cp -r james-2.3.2 /opt
 sudo cp phoenix.sh /opt/james-2.3.2/bin/
 sudo chmod +x /opt/james-2.3.2/bin/*.sh
 sudo cp  /opt/james-2.3.2/apps/james/SAR-INF/config.xml  /opt/james-2.3.2/apps/james/SAR-INF/config.xml.bk
-sudo cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
 echo "***********james server done **********"
 
 #Install ssh server
@@ -99,6 +98,7 @@ tar -xvzf apache-tomcat-10.1.17.tar.gz
 #sudo mv apache-tomcat-10.1.17 /opt
 exit
 cd ~/vulnerable-lab/
+cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
 cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf
 cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
 cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
