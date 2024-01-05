@@ -102,8 +102,10 @@ cd ~/vulnerable-lab/
 cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf
 cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
 cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
-sudo cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
 sudo mv apache-tomcat-10.1.17 /opt
+sudo cp config.xml /opt/james-2.3.2/apps/james/SAR-INF/
+sudo cp james-fetchmail.xml /opt/james-2.3.2/apps/james/conf/
+
 
 echo "----------------apache tomcat installation  done---------------"
 
