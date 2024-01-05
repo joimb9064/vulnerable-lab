@@ -96,11 +96,13 @@ echo "********About to install apache tomcat***"
 sudo apt install default-jdk -y
 wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
 tar -xvzf apache-tomcat-10.1.17.tar.gz
-sudo mv apache-tomcat-10.1.17 /opt
-sudo cp ~/vulnerable-lab/server.xml tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
-sudo cp ~/vulnerable-lab/tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
-sudo cp /opt/apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml /opt/apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
-sudo cp context.xml opt/apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
 #sudo mv apache-tomcat-10.1.17 /opt
+exit
+cd ~/vulnerable-lab/
+sudo cp server.xml tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
+sudo cp tomcat-users.xml /opt/apache-tomcat-10.1.17/conf
+sudo cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
+sudo cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
+sudo mv apache-tomcat-10.1.17 /opt
 echo "----------------apache tomcat installation  done---------------"
 
