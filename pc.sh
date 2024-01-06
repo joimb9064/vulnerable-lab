@@ -77,7 +77,6 @@ sudo cp /etc/crontab /etc/crontab.bk
 chmod 644 crontab
 sudo cp crontab /etc/
 sudo apt -y install net-tools
-
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
 sudo systemctl restart smbd
@@ -106,6 +105,5 @@ cp server.xml tomcat-users.xml tomcat-users.xm apache-tomcat-10.1.17/conf/
 cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
 cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/ 
 sudo mv apache-tomcat-10.1.17 /opt
-
 echo "----------------apache tomcat installation  done---------------"
 
