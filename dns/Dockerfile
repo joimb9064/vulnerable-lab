@@ -4,7 +4,9 @@ RUN apt update \
   bind9 \
   bind9utils \
   bind9-doc
-
+  
+  RUN apt -y install nano
+  RUN apt -y install iputils-ping
 # Enable IPv4
 RUN sed -i 's/OPTIONS=.*/OPTIONS="-4 -u bind"/' /etc/default/bind9
 
