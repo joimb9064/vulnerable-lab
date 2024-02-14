@@ -10,6 +10,8 @@ $TTL    604800
        IN      NS      ns1.acit4050.com.
 
 ; name servers - A records
-ns1.acit4050.com.          IN      A      172.20.0.2
-host1.acit4050.com.        IN      A      172.20.0.3
-host2.acit4050.com.        IN      A      172.20.0.4
+ns1.acit4050.com.          IN      A      192.168.247.128
+goodsite.acit4050.com.        IN      A     192.168.247.128
+victim.acit4050.com.        IN      A      192.168.247.129
+kali.acit4050.com.        IN      A      192.168.247.130
+
