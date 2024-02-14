@@ -1,0 +1,4 @@
+zone "acit4050.com" {
+    type master;
+    file "/etc/bind/zones/db.acit4050.com";
+};
