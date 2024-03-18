@@ -72,14 +72,13 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-arm64"
 export PATH=$PATH:$JAVA_HOME/bin
 
 
-#Tomcat
-echo "********About to install apache tomcat***"
-sudo apt install default-jdk -y
-wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.17/bin/apache-tomcat-10.1.17.tar.gz
-tar -xvzf apache-tomcat-10.1.17.tar.gz
-sudo cp server.xml tomcat-users.xml apache-tomcat-10.1.17/conf
-sudo cp apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml.bk
-sudo cp context.xml apache-tomcat-10.1.17/webapps/host-manager/META-INF/context.xml 
-sudo mv apache-tomcat-10.1.17 /opt
-echo "----------------apache tomcat installation  done---------------"
-#sudo cp manager.xml apache-tomcat-10.0.27/conf/Catalina/localhost/
+# Tomcat installation
+echo "********** Install Apache Tomcat 10.1.19 **********"
+sudo apt -y install default-jdk
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.19/bin/apache-tomcat-10.1.19.tar.gz
+tar -xvzf apache-tomcat-10.1.19.tar.gz
+sudo cp server.xml tomcat-users.xml apache-tomcat-10.1.19/conf/
+sudo cp apache-tomcat-10.1.19/webapps/host-manager/META-INF/context.xml apache-tomcat-10.1.19/webapps/host-manager/META-INF/context.xml.bk
+sudo cp context.xml apache-tomcat-10.1.19/webapps/host-manager/META-INF/context.xml
+sudo mv apache-tomcat-10.1.19 /opt
+echo "********** Apache Tomcat 10.1.19 installation successful **********"
